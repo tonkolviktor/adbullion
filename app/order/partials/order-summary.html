@@ -1,0 +1,23 @@
+<div class="table-responsive table-order">
+    <table class="table table-condensed">
+        <caption>{{'YOUR_ORDER' | translate}}</caption>
+        <tbody>
+            <tr ng-repeat="product in products track by $id(product)">
+                <td class="text-right">
+                    {{product.name}}
+                </td>
+                <td>
+                    ${{product.price}}
+                </td>
+            </tr>
+            <tr class="order-total">
+                <td class="text-right">
+                    {{'TOTAL' | translate}}
+                </td>
+                <td>
+                    ${{total}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

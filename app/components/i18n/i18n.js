@@ -11,6 +11,10 @@ angular.module('myApp.i18n', [])
         'STATE': 'State',
         'COUNTY': 'Country',
         'TERMS_AND_CONDITIONS':'Terms and conditions',
+        'YOUR_ORDER':'Your Order',
+        'PRODUCT':'Product',
+        'SHIPPING':'Shipping',
+        'TOTAL':'Total',
 
 
         'LAST':'last'

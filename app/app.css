@@ -1,30 +1,22 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.table-order {
+    background-color: #E5E5E5;
+    padding: 5px;
+}
+.table-order table {
+    background-color: #E5E5E5;
+    margin: 0px;
+}
+.table-order tbody > tr > td {
+    border: none;
 }
 
-.menu:before {
-  content: "[";
+.table-order caption {
+    border-bottom: 1px solid black !important;
 }
 
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+.table-order .order-total {
+    border-top: 1px solid black !important;
+    font-weight: bold;
 }
