@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('myApp.order', ['ngRoute'])
+angular.module('myApp.order', ['ngRoute', 'myApp.order.directives'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/order', {
-            templateUrl: 'order/order.html',
+            templateUrl: 'order/partials/order.html',
             controller: 'OrderCtrl'
         });
     }])
