@@ -4,7 +4,7 @@
             <input class="center-block" type="radio" name="optionProducts" value="{{product.id}}" ng-model="selectedProduct.id">
         </div>
         <div class="col-xs-6 col-md-6">
-            <img class="center-block" src="{{product.image}}">
+            <img class="center-block" ng-src="{{product.image}}">
         </div>
         <div class="col-xs-5 col-md-5">
             <div class="product-price center-block" ng-class="{'product-price-selected' : selectedProduct.id == product.id}">${{product.price}}</div>
