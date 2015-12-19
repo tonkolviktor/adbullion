@@ -4,10 +4,12 @@
     background-color: #E5E5E5;
     padding: 5px;
 }
+
 .table-order table {
     background-color: #E5E5E5;
     margin: 0px;
 }
+
 .table-order tbody > tr > td {
     border: none;
 }
@@ -19,4 +21,19 @@
 .table-order .order-total {
     border-top: 1px solid black !important;
     font-weight: bold;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.product-price {
+    font-size: xx-large;
+    color: #29435C
+}
+
+.product-price-selected {
+    font-size: xx-large;
+    color: inherit;
 }

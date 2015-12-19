@@ -2,7 +2,7 @@
     <table class="table table-condensed">
         <caption>{{'YOUR_ORDER' | translate}}</caption>
         <tbody>
-            <tr ng-repeat="product in products track by $id(product)">
+            <tr ng-repeat="product in products track by product.id">
                 <td class="text-right">
                     {{product.name}}
                 </td>
