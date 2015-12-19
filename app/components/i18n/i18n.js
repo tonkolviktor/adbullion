@@ -9,7 +9,11 @@ angular.module('myApp.i18n', [])
         'ADDRESS': 'Address',
         'CITY': 'City',
         'STATE': 'State',
-        'COUNTY': 'Country'
+        'COUNTY': 'Country',
+        'TERMS_AND_CONDITIONS':'Terms and conditions',
+
+
+        'LAST':'last'
     },
     ES: {}
 }
