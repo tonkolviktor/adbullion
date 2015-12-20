@@ -24,12 +24,12 @@ angular.module('myApp.order.services', [])
         }
     }])
     .factory("GeneralData", ['$resource', function ($resource) {
-        var url = "http://localhost:3000/";
+        var url = "http://localhost:8080/api/";
         return $resource(url, {},
             {
                 "listProducts": {method: 'GET', url: url + 'products', isArray: true},
                 "listCountries": {method: 'GET', url: url + 'countries', isArray: true},
-                "addOrder": {method: 'POST', url: url}
+                "addOrder": {method: 'POST', url: url + 'newOrder'}
             });
     }])
 ;
