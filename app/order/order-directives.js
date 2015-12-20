@@ -55,31 +55,27 @@ angular.module('myApp.order.directives', [])
             }
         };
     }])
-    .directive('productSelector', [function () {
+    .directive('productSelector', ['GeneralData', function (GeneralData) {
         return {
             restrict: 'E',
             templateUrl: 'order/partials/product-selector.html',
             controller: function ($scope, $element) {
-                // TODO from DB
-                var dbProducts = [
-                    {id: 1, product: 'One Bottle Adv', price: 45},
-                    {id: 2, product: 'Two Bottles Adv', price: 75},
-                    {id: 3, product: 'Three Bottles Adv', price: 100}
-                ];
+                GeneralData.listProducts({}, function(response) {
+                    var dbProducts = response;
+                    dbProducts.forEach(function(element) {
+                        if(element.product.indexOf("Two") === 0) {
+                            element.image = "gfx/products/more.png";
+                        } else if(element.product.indexOf("Three") === 0) {
+                            element.image = "gfx/products/many.png";
+                        } else {
+                            element.image = "gfx/products/few.png";
+                        }
+
+                        $scope.possibleProducts.push(element);
+                    });
+                });
 
                 $scope.possibleProducts = [];
-
-                dbProducts.forEach(function(element) {
-                    if(element.product.indexOf("Two") === 0) {
-                        element.image = "gfx/products/more.png";
-                    } else if(element.product.indexOf("Three") === 0) {
-                        element.image = "gfx/products/many.png";
-                    } else {
-                        element.image = "gfx/products/few.png";
-                    }
-
-                    $scope.possibleProducts.push(element);
-                });
             }
         };
     }])

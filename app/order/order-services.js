@@ -23,4 +23,12 @@ angular.module('myApp.order.services', [])
             }
         }
     }])
+    .factory("GeneralData", ['$resource', function ($resource) {
+        var url = "http://localhost:3000/";
+        return $resource(url, {},
+            {
+                "listProducts": {method: 'GET', url: url + 'products', isArray: true},
+                "listCountries": {method: 'GET', url: url + 'countries', isArray: true}
+            });
+    }])
 ;
