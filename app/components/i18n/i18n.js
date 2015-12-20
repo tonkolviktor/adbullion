@@ -18,6 +18,9 @@ angular.module('myApp.i18n', [])
         'SUBMIT':'Submit',
         'ERROR_REQUIRED':'This field is required!',
         'ERROR_EMAIL':'Invalid email address!',
+        'ORDER_SUBMITTED':'Order successfully submitted. Order id: {{orderId}}',
+        'HTTP_ERROR':'Communication error occurred during form submission',
+        'NEW_ORDER':'New order',
 
 
         'LAST':'last'

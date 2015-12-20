@@ -12,6 +12,16 @@ angular.module('myApp.order.directives', [])
             templateUrl: 'order/partials/terms-and-conditions.html'
         };
     }])
+    .directive('submitCircle', [function () {
+        return {
+            templateUrl: 'order/partials/submit-circle.html'
+        };
+    }])
+    .directive('message', [function () {
+        return {
+            templateUrl: 'order/partials/message.html'
+        };
+    }])
     .directive('orderSummary', [function () {
 
         return {
@@ -19,11 +29,29 @@ angular.module('myApp.order.directives', [])
             scope: true,
             templateUrl: 'order/partials/order-summary.html',
             controller: function ($scope, $element) {
-                $scope.products = [
-                    {id: 1, name: 'Product 1', price: '50'},
-                    {id: 2, name: 'Shipping', price: '4.95'}
-                ];
-                $scope.total = 54.95;
+                var rebuildPriceList = function() {
+                    $scope.products = [];
+                    $scope.total = 0;
+
+                    if($scope.order.selectedProduct) {
+                        var product = {
+                            id: 'product_' + $scope.order.selectedProduct.id,
+                            name: $scope.order.selectedProduct.product,
+                            price: $scope.order.selectedProduct.price,
+                        };
+                        $scope.products.push(product);
+                        $scope.total += product.price;
+                    }
+
+                    if(true) { // TODO country selector
+                        $scope.products.push({id: 2, name: 'Shipping', price: '4.95'});
+                        $scope.total += 4.95;
+                    }
+                };
+                rebuildPriceList();
+                $scope.$watch('order.selectedProduct', function(newVal, oldVal) {
+                    rebuildPriceList();
+                });
             }
         };
     }])
@@ -40,7 +68,6 @@ angular.module('myApp.order.directives', [])
                 ];
 
                 $scope.possibleProducts = [];
-                $scope.selectedProduct = {};
 
                 dbProducts.forEach(function(element) {
                     if(element.product.indexOf("Two") === 0) {

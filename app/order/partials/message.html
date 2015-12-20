@@ -1,0 +1,6 @@
+<div class="bg-danger" ng-show="message.type == 'ERROR'">
+    {{message.message}}
+</div>
+<div class="bg-success" ng-show="message.type == 'SUCCESS'">
+    {{message.message}} <a class="pointer" ng-click="resetOrder()">{{'NEW_ORDER' | translate}}</a>
+</div>

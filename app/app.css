@@ -119,3 +119,7 @@ div.stretchy-wrapper > div {
     text-transform: uppercase;
     color: #fff;
 }
+
+.pointer {
+    cursor: pointer;
+}
