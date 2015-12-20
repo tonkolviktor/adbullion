@@ -2,9 +2,16 @@
 
 angular.module('myApp.order.directives', [])
 
-    .directive('orderForm', [function () {
+    .directive('orderForm', ['GeneralData', function (GeneralData) {
         return {
-            templateUrl: 'order/partials/order-form.html'
+            templateUrl: 'order/partials/order-form.html',
+            controller: function ($scope, $element) {
+                $scope.availableCountries = [];
+
+                GeneralData.listCountries({}, function(response) {
+                    $scope.availableCountries = response;
+                });
+            }
         };
     }])
     .directive('termsAndConditions', [function () {
@@ -22,7 +29,7 @@ angular.module('myApp.order.directives', [])
             templateUrl: 'order/partials/message.html'
         };
     }])
-    .directive('orderSummary', [function () {
+    .directive('orderSummary', ['$translate', function ($translate) {
 
         return {
             restrict: 'E',
@@ -31,7 +38,7 @@ angular.module('myApp.order.directives', [])
             controller: function ($scope, $element) {
                 var rebuildPriceList = function() {
                     $scope.products = [];
-                    $scope.total = 0;
+                    var total = 0;
 
                     if($scope.order.selectedProduct) {
                         var product = {
@@ -40,16 +47,26 @@ angular.module('myApp.order.directives', [])
                             price: $scope.order.selectedProduct.price,
                         };
                         $scope.products.push(product);
-                        $scope.total += product.price;
+                        total += product.price;
                     }
 
-                    if(true) { // TODO country selector
-                        $scope.products.push({id: 2, name: 'Shipping', price: '4.95'});
-                        $scope.total += 4.95;
+                    if($scope.order.country) {
+                        var shipping = {
+                            id: 'shipping_' +$scope.order.id,
+                            name: $translate.instant('SHIPPING_TO', {country: $scope.order.country.country}),
+                            price: $scope.order.country.price
+                        }
+                        $scope.products.push(shipping);
+                        total += shipping.price;
                     }
+
+                    $scope.order.total = total;
                 };
                 rebuildPriceList();
                 $scope.$watch('order.selectedProduct', function(newVal, oldVal) {
+                    rebuildPriceList();
+                });
+                $scope.$watch('order.country', function(newVal, oldVal) {
                     rebuildPriceList();
                 });
             }

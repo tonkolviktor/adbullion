@@ -1,7 +1,7 @@
 <form>
     <div class="form-group first-input">
         <label for="inputName">{{ 'NAME' | translate }}</label>
-        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="{{ 'NAME' | translate }}" required="" ng-model="order.name">
+        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="{{ 'NAME' | translate }}" required="" ng-model="order.fullname">
         <div ng-show="orderform.$submitted || orderform.inputName.$touched">
             <div class="text-danger bg-danger" ng-show="orderform.inputName.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
         </div>
@@ -44,7 +44,10 @@
     </div>
     <div class="form-group">
         <label for="inputCountry">{{ 'COUNTY' | translate }}</label>
-        <input type="text" class="form-control" name="inputCountry" id="inputCountry" placeholder="{{ 'COUNTY' | translate }}" required="" ng-model="order.country">
+        <select class="form-control" name="inputCountry" id="inputCountry"
+                ng-options="option.country for option in availableCountries track by option.id"
+                required="" ng-model="order.country">
+        </select>
         <div ng-show="orderform.$submitted || orderform.inputCountry.$touched">
             <div class="text-danger bg-danger" ng-show="orderform.inputCountry.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
         </div>

@@ -11,9 +11,7 @@ angular.module('myApp.order', ['ngRoute', 'myApp.order.directives', 'myApp.order
 
     .controller('OrderCtrl', ['$scope', 'OrderData', '$translate', function ($scope, OrderData, $translate) {
         $scope.resetOrder = function() {
-            $scope.order = {selectedProduct: null};
-            $scope.total = 0;
-            $scope.shipping = 4.95;
+            $scope.order = {selectedProduct: null, country: null, total: 0};
             $scope.message = null;
             if($scope.orderform) {
                 $scope.orderform.$setPristine();
@@ -25,9 +23,10 @@ angular.module('myApp.order', ['ngRoute', 'myApp.order.directives', 'myApp.order
         var createOrder = function () {
             var orderToSend = angular.copy($scope.order);
             delete orderToSend.selectedProduct;
+            delete orderToSend.country;
             orderToSend.product = $scope.order.selectedProduct.price;
-            orderToSend.shipping = $scope.shipping;
-            orderToSend.total = $scope.total;
+            orderToSend.shipping = $scope.order.country.price;
+            orderToSend.country = $scope.order.country.country;
 
             return orderToSend;
         };

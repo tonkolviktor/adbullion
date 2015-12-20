@@ -21,6 +21,7 @@ angular.module('myApp.i18n', [])
         'ORDER_SUBMITTED':'Order successfully submitted. Order id: {{orderId}}',
         'HTTP_ERROR':'Communication error occurred during form submission',
         'NEW_ORDER':'New order',
+        'SHIPPING_TO':'Shipping to {{country}}',
 
 
         'LAST':'last'
