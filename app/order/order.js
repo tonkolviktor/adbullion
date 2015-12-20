@@ -15,8 +15,10 @@ angular.module('myApp.order', ['ngRoute', 'myApp.order.directives', 'myApp.order
             $scope.total = 0;
             $scope.shipping = 4.95;
             $scope.message = null;
-            $scope.orderform.$setPristine();
-            $scope.orderform.$setUntouched();
+            if($scope.orderform) {
+                $scope.orderform.$setPristine();
+                $scope.orderform.$setUntouched();
+            }
         };
         $scope.resetOrder();
 
