@@ -14,6 +14,8 @@ if(!DB_HOST && !DB_USER && !DB_PASSWORD && args.length < 3) {
     DB_PASSWORD = args[2];
 }
 
+console.log('Mysql server: ' + DB_USER + '@' + DB_HOST);
+
 var http = require('http');
 
 var buffet = require('buffet')({root: './app'});

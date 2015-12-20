@@ -24,7 +24,7 @@ angular.module('myApp.order.services', [])
         }
     }])
     .factory("GeneralData", ['$resource', function ($resource) {
-        var url = "http://localhost:8080/api/";
+        var url = "/api/";
         return $resource(url, {},
             {
                 "listProducts": {method: 'GET', url: url + 'products', isArray: true},
