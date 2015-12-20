@@ -57,7 +57,7 @@
     margin-top: 15px;
 }
 
-.order-form {
+.order-form-panel {
     background-color: #6A9ACA;
     border-radius: 5px;
     border: 1px solid white;
@@ -66,15 +66,15 @@
     margin-top: 5px;
 }
 
-.order-form .form-group {
+.order-form-panel .form-group {
     margin-bottom: 5px;
 }
 
-.order-form .first-input {
+.order-form-panel .first-input {
     margin-top: 40px;
 }
 
-.order-form label {
+.order-form-panel label {
     color: #ffffff;
 }
 

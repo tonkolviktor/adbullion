@@ -9,6 +9,15 @@ angular.module('myApp.order', ['ngRoute', 'myApp.order.directives'])
         });
     }])
 
-    .controller('OrderCtrl', [function () {
-
+    .controller('OrderCtrl', ['$scope', function ($scope) {
+        $scope.order = {};
+        $scope.submitOrder = function () {
+            $scope.orderform.$setSubmitted();
+            if($scope.orderform.$invalid) {
+                return;
+            }
+            console.log($scope);
+            console.log($scope.orderform);
+            console.log($scope);
+        }
     }]);

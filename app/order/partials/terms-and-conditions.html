@@ -1,7 +1,10 @@
 <div class="form-group">
     <label>
-        <input type="checkbox"> {{'TERMS_AND_CONDITIONS' | translate}}
+        <input type="checkbox" required="" name="acceptedTerms" ng-model="order.acceptedTerms"> {{'TERMS_AND_CONDITIONS' | translate}}
     </label>
+    <div ng-show="orderform.$submitted || orderform.inputPhone.$touched">
+        <div class="text-danger bg-danger" ng-show="orderform.acceptedTerms.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
+    </div>
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt a nibh a pretium. In iaculis porta lacus ac luctus. Proin varius magna sed ante finibus dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas ultricies finibus urna, ac accumsan ipsum congue quis. Ut quis sagittis metus, id tempus tellus. Aliquam nec mauris a felis posuere dignissim sit amet vitae velit. Fusce finibus nulla metus, tincidunt dapibus mi sodales id. In et sem et velit maximus commodo id sed leo. Nulla sodales nec velit et iaculis. Pellentesque sit amet erat et ante laoreet laoreet. Ut eu leo sed nibh feugiat consequat. Donec fringilla dolor non turpis rutrum vestibulum. Suspendisse potenti. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
     </p>

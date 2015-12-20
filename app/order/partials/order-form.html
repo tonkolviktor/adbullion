@@ -1,30 +1,52 @@
 <form>
     <div class="form-group first-input">
         <label for="inputName">{{ 'NAME' | translate }}</label>
-        <input type="text" class="form-control" id="inputName" placeholder="{{ 'NAME' | translate }}">
+        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="{{ 'NAME' | translate }}" required="" ng-model="order.name">
+        <div ng-show="orderform.$submitted || orderform.inputName.$touched">
+            <div class="text-danger bg-danger" ng-show="orderform.inputName.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="inputEmail">{{ 'EMAIL' | translate }}</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="{{ 'EMAIL' | translate }}">
+        <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="{{ 'EMAIL' | translate }}" required="" ng-model="order.email">
+        <div ng-show="orderform.$submitted || orderform.inputEmail.$touched">
+            <div class="text-danger bg-danger" ng-show="orderform.inputEmail.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
+            <div class="text-danger bg-danger" ng-show="orderform.inputEmail.$error.email">{{'ERROR_EMAIL' | translate}}</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="inputPhone">{{ 'PHONE' | translate }}</label>
-        <input type="text" class="form-control" id="inputPhone" placeholder="{{ 'PHONE' | translate }}">
+        <input type="number" class="form-control" name="inputPhone" id="inputPhone" placeholder="{{ 'PHONE' | translate }}" required="" ng-model="order.phone">
+        <div ng-show="orderform.$submitted || orderform.inputPhone.$touched">
+            <div class="text-danger bg-danger" ng-show="orderform.inputPhone.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="inputAddress">{{ 'ADDRESS' | translate }}</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="{{ 'ADDRESS' | translate }}">
+        <input type="text" class="form-control" name="inputAddress" id="inputAddress" placeholder="{{ 'ADDRESS' | translate }}" required="" ng-model="order.address">
+        <div ng-show="orderform.$submitted || orderform.inputAddress.$touched">
+            <div class="text-danger bg-danger" ng-show="orderform.inputAddress.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="inputCity">{{ 'CITY' | translate }}</label>
-        <input type="text" class="form-control" id="inputCity" placeholder="{{ 'CITY' | translate }}">
+        <input type="text" class="form-control" name="inputCity" id="inputCity" placeholder="{{ 'CITY' | translate }}" required="" ng-model="order.city">
+        <div ng-show="orderform.$submitted || orderform.inputCity.$touched">
+            <div class="text-danger bg-danger" ng-show="orderform.inputCity.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="inputState">{{ 'STATE' | translate }}</label>
-        <input type="text" class="form-control" id="inputState" placeholder="{{ 'STATE' | translate }}">
+        <input type="text" class="form-control" name="inputState" id="inputState" placeholder="{{ 'STATE' | translate }}" required="" ng-model="order.state">
+        <div ng-show="orderform.$submitted || orderform.inputState.$touched">
+            <div class="text-danger bg-danger" ng-show="orderform.inputState.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="inputCountry">{{ 'COUNTY' | translate }}</label>
-        <input type="text" class="form-control" id="inputCountry" placeholder="{{ 'COUNTY' | translate }}">
+        <input type="text" class="form-control" name="inputCountry" id="inputCountry" placeholder="{{ 'COUNTY' | translate }}" required="" ng-model="order.country">
+        <div ng-show="orderform.$submitted || orderform.inputCountry.$touched">
+            <div class="text-danger bg-danger" ng-show="orderform.inputCountry.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
+        </div>
     </div>
 </form>

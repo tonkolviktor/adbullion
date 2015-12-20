@@ -1,7 +1,7 @@
 <section class="product-selector row">
-    <div class="radio vertical-align" ng-repeat="product in products track by product.id">
+    <div class="radio vertical-align" ng-repeat="product in possibleProducts track by product.id">
         <div class="col-xs-1 col-md-1">
-            <input class="center-block" type="radio" name="optionProducts" value="{{product.id}}" ng-model="selectedProduct.id">
+            <input class="center-block" type="radio" name="optionProducts" value="{{product.id}}" ng-model="selectedProduct.id" required="">
         </div>
         <div class="col-xs-6 col-md-6">
             <img class="center-block" ng-src="{{product.image}}">
@@ -9,5 +9,8 @@
         <div class="col-xs-5 col-md-5">
             <div class="product-price center-block" ng-class="{'product-price-selected' : selectedProduct.id == product.id}">${{product.price}}</div>
         </div>
+    </div>
+    <div ng-show="orderform.$submitted || orderform.optionProducts.$touched">
+        <div class="text-danger bg-danger" ng-show="orderform.optionProducts.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
     </div>
 </section>

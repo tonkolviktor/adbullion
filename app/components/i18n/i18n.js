@@ -16,6 +16,8 @@ angular.module('myApp.i18n', [])
         'SHIPPING':'Shipping',
         'TOTAL':'Total',
         'SUBMIT':'Submit',
+        'ERROR_REQUIRED':'This field is required!',
+        'ERROR_EMAIL':'Invalid email address!',
 
 
         'LAST':'last'

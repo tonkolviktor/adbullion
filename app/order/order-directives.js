@@ -30,7 +30,6 @@ angular.module('myApp.order.directives', [])
     .directive('productSelector', [function () {
         return {
             restrict: 'E',
-            scope: true,
             templateUrl: 'order/partials/product-selector.html',
             controller: function ($scope, $element) {
                 // TODO from DB
@@ -40,8 +39,8 @@ angular.module('myApp.order.directives', [])
                     {id: 3, product: 'Three Bottles Adv', price: 100}
                 ];
 
-                $scope.products = [];
-                $scope.selectedProduct = {id: 0};
+                $scope.possibleProducts = [];
+                $scope.selectedProduct = {};
 
                 dbProducts.forEach(function(element) {
                     if(element.product.indexOf("Two") === 0) {
@@ -52,7 +51,7 @@ angular.module('myApp.order.directives', [])
                         element.image = "gfx/products/few.png";
                     }
 
-                    $scope.products.push(element);
+                    $scope.possibleProducts.push(element);
                 });
             }
         };
