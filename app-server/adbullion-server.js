@@ -35,16 +35,52 @@ function getServerConfig() {
 
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
         res.setHeader('Access-Control-Allow-Origin', '*');
+        var headers = req.headers['access-control-request-headers'];
+        if(headers) {
+            res.setHeader('Access-Control-Allow-Headers', headers);
+        }
 
         if (req.method === 'OPTIONS') {
-            res.send(200);
+            callback(null, '');
         } else if(req.method === 'GET') {
             listData(req.url, callback);
+        } else if(req.method === 'POST') {
+            saveNewOrder(req, callback);
         } else {
             callback({error: 'Not supported HTTP method: ' + req.method}, null);
         }
     }
 }
+
+function saveNewOrder(req, callback) {
+    var jsonString = '';
+
+    req.on('data', function (data) {
+        if (jsonString.length > 1e6) {
+            req.connection.destroy();
+        }
+        jsonString += data;
+    });
+
+    req.on('end', function () {
+        var postData = JSON.parse(jsonString);
+        insertOrderIntoDatabase(postData, callback);
+    });
+}
+
+function insertOrderIntoDatabase(postData, callback) {
+    var connection = getConnectionToQuizDatabase();
+    connection.connect();
+    var query = connection.query('INSERT INTO viktorTonkol_sales SET ?', postData, function(err, result) {
+        if (err) {
+            return callback(err, null);
+        }
+        connection.end();
+        callback(null, '');
+    });
+
+}
+
 
 function listData(url, callback) {
     var connection = getConnectionToGeneralDatabase();
@@ -78,6 +114,18 @@ function getConnectionToGeneralDatabase() {
         user : DB_USER,
         password : DB_PASSWORD,
         database : 'quiz_general'
+    });
+
+    return connection;
+}
+
+function getConnectionToQuizDatabase() {
+    var mysql = require('mysql');
+    var connection = mysql.createConnection({
+        host : DB_HOST,
+        user : DB_USER,
+        password : DB_PASSWORD,
+        database : 'QuizTest'
     });
 
     return connection;

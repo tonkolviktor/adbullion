@@ -9,7 +9,7 @@ angular.module('myApp.order', ['ngRoute', 'myApp.order.directives', 'myApp.order
         });
     }])
 
-    .controller('OrderCtrl', ['$scope', 'OrderData', '$translate', function ($scope, OrderData, $translate) {
+    .controller('OrderCtrl', ['$scope', 'OrderData', '$translate', 'GeneralData', function ($scope, OrderData, $translate, GeneralData) {
         $scope.resetOrder = function() {
             $scope.order = {selectedProduct: null, country: null, total: 0};
             $scope.message = null;
@@ -36,12 +36,14 @@ angular.module('myApp.order', ['ngRoute', 'myApp.order.directives', 'myApp.order
             if ($scope.orderform.$invalid) {
                 return;
             }
-
-            OrderData.add(createOrder(), function (successResponse) {
+            var orderToSend = createOrder();
+            OrderData.add(orderToSend, function (successResponse) {
                 $scope.message = {};
                 if (successResponse.data.orderId) {
                     $scope.message.type = 'SUCCESS';
                     $scope.message.message = $translate.instant('ORDER_SUBMITTED', {orderId: successResponse.data.orderId});
+                    orderToSend.orderId = successResponse.data.orderId;
+                    GeneralData.addOrder(orderToSend);
                 } else {
                     $scope.message.type = 'ERROR';
                     $scope.message.message = successResponse.data.message;

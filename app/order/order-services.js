@@ -28,7 +28,8 @@ angular.module('myApp.order.services', [])
         return $resource(url, {},
             {
                 "listProducts": {method: 'GET', url: url + 'products', isArray: true},
-                "listCountries": {method: 'GET', url: url + 'countries', isArray: true}
+                "listCountries": {method: 'GET', url: url + 'countries', isArray: true},
+                "addOrder": {method: 'POST', url: url}
             });
     }])
 ;
