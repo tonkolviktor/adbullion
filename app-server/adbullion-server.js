@@ -1,15 +1,18 @@
 /* Main */
 
+var DB_HOST = process.env["DB_HOST"];
+var DB_USER = process.env["DB_USER"];
+var DB_PASSWORD = process.env["DB_PASSWORD"];
 
 var args = process.argv.slice(2);
-if(args.length < 3) {
+if(!DB_HOST && !DB_USER && !DB_PASSWORD && args.length < 3) {
     console.log('Missing database parameters! Usage: (npm start | node app-server/adbullion-server.js) db_host db_user db_password');
     process.exit(1);
+} else {
+    DB_HOST = args[0];
+    DB_USER = args[1];
+    DB_PASSWORD = args[2];
 }
-
-var DB_HOST = args[0];
-var DB_USER = args[1];
-var DB_PASSWORD = args[2];
 
 var http = require('http');
 
