@@ -15,6 +15,7 @@ angular.module('myApp.i18n', [])
         'PRODUCT':'Product',
         'SHIPPING':'Shipping',
         'TOTAL':'Total',
+        'SUBMIT':'Submit',
 
 
         'LAST':'last'

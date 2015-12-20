@@ -1,5 +1,5 @@
-<section class="product-selector">
-    <div class="radio row vertical-align" ng-repeat="product in products track by product.id">
+<section class="product-selector row">
+    <div class="radio vertical-align" ng-repeat="product in products track by product.id">
         <div class="col-xs-1 col-md-1">
             <input class="center-block" type="radio" name="optionProducts" value="{{product.id}}" ng-model="selectedProduct.id">
         </div>
