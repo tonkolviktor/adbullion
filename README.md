@@ -48,22 +48,19 @@ I implemented the order module and the nodejs server side component.
 
 The following technologies / frameworks were used:
 
-HTML5
-CSS3
-JavaScript
- AngularJS
- JQuery
- NodeJS
-  http
-  mysql
-  buffet
- karma
- protactor
- jasmine
- bower
- npm
-git
-SQL
+- HTML5
+- CSS3
+- JavaScript
+ - AngularJS
+ - JQuery
+ - NodeJS (http, mysql, buffet)
+ - karma
+ - protactor
+ - jasmine
+ - bower
+ - npm
+- git
+- SQL
 
 The application consists of two main parts: client side (/app directory) and server side (/app-server directory)
 The client side was written in AngularJS. The business logic can be found in /app/order/order.js and order-directives.js
@@ -74,9 +71,9 @@ The server nodejs application (/app-server/adbullion-server.js) creates a http s
 This serves two kinds of requests:
  - client side static files: the content of the /app directory can be accessed
  - API request:
-    GET <host>:8080/api/products product list from database
-    GET <host>:8080/api/customers customers list from database
-    POST <host>:8080/api/newOrder insert the posted (json format) order into sales table
+    - GET <host>:8080/api/products product list from database
+    - GET <host>:8080/api/customers customers list from database
+    - POST <host>:8080/api/newOrder insert the posted (json format) order into sales table
 
 ### Directory Layout
 

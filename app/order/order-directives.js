@@ -77,6 +77,7 @@ angular.module('myApp.order.directives', [])
             restrict: 'E',
             templateUrl: 'order/partials/product-selector.html',
             controller: function ($scope, $element) {
+                $scope.possibleProducts = [];
                 GeneralData.listProducts({}, function(response) {
                     var dbProducts = response;
                     dbProducts.forEach(function(element) {
@@ -91,8 +92,6 @@ angular.module('myApp.order.directives', [])
                         $scope.possibleProducts.push(element);
                     });
                 });
-
-                $scope.possibleProducts = [];
             }
         };
     }])

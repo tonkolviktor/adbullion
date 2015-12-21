@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.order', ['ngRoute', 'myApp.order.directives', 'myApp.order.services'])
+angular.module('myApp.order', ['ngRoute', 'myApp.order.directives', 'myApp.order.services', 'pascalprecht.translate'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/order', {
