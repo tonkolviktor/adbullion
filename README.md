@@ -12,7 +12,7 @@ cd adbullion
 
 Start the application
 ```
-npm start
+npm start db_host db_user db_password
 ```
 Now browse to the app at `http://localhost:8080/`.
 
@@ -29,7 +29,7 @@ npm run test-single-run
 ### End to end testing
 
 ```
-npm start
+npm start db_host db_user db_password
 ```
 
 ```
