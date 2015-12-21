@@ -18,7 +18,7 @@ Now browse to the app at `http://localhost:8080/`.
 
 ## Testing
 
-There are two kinds of tests in the angular-seed application: Unit tests and End to End tests.
+There are two kinds of tests in the application: Unit tests and End to End tests.
 
 ### Running Unit Tests
 
@@ -44,7 +44,8 @@ npm run protractor
 ## Documentation
 
 The application is based on: https://github.com/angular/angular-seed
-I implemented the order module and the nodejs server side component.
+
+I implemented the order module, the nodejs server side component, the unit and the e2e tests.
 
 The following technologies / frameworks were used:
 
