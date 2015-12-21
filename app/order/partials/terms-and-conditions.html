@@ -2,7 +2,7 @@
     <label>
         <input type="checkbox" required="" name="acceptedTerms" ng-model="order.acceptedTerms"> {{'TERMS_AND_CONDITIONS' | translate}}
     </label>
-    <div ng-show="orderform.$submitted || orderform.inputPhone.$touched">
+    <div ng-show="orderform.$submitted || orderform.acceptedTerms.$touched">
         <div class="text-danger bg-danger" ng-show="orderform.acceptedTerms.$error.required">{{'ERROR_REQUIRED' | translate}}</div>
     </div>
     <p>

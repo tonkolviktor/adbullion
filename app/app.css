@@ -1,5 +1,9 @@
 /* app css stylesheet */
 
+body {
+    overflow-x: hidden !important;
+}
+
 .table-order {
     background-color: #E5E5E5;
     padding: 5px;
